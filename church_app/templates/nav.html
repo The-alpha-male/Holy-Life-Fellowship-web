@@ -1,0 +1,43 @@
+{% load static %}<!-- ***** Navbar Area ***** -->
+        <div class="crose-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="croseNav">
+
+                        <!-- Nav brand -->
+                        <a href="" class="nav-brand"><img src="{% static 'img/core-img/hlf-logo.png' %}" style="max-height: 90px;" alt="Holy Life Fellowship"></a>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- close btn -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="{% url 'church_app:home' %}">Home</a></li>
+                                    <li><a href="{% url 'church_app:about' %}">About Us</a></li>
+                                    <li><a href="{% url 'church_app:events' %}">Events</a></li>
+                                    <li><a href="{% url 'church_app:gallery' %}">Gallery</a></li>
+                                    <li><a href="{% url 'church_app:contacts' %}">Contact Us</a></li>
+                                    <li><a href="{% url 'church_app:login' %}">Log In</a></li>
+
+                                </ul>
+
+                                <!-- Search Button -->
+                                <div id="header-search"><i class="fa fa-search" aria-hidden="true"></i></div>
+
+                                <!-- Donate Button -->
+                                <a href="#" class="btn crose-btn header-btn">Ministry Support</a>
+
+                            </div>
+                            <!-- Nav End -->

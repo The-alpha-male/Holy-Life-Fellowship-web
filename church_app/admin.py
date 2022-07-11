@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from . models import Contactus,Gallery
+
+# # Register your models here.
+
+admin.site.register(Contactus)
+admin.site.register(Gallery)
+
