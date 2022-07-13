@@ -1,6 +1,6 @@
 from multiprocessing import context
 from re import template
-from django.shortcuts import render,redirect
+from django.shortcuts import get_object_or_404, render,redirect
 from django.http import HttpResponse
 from . forms import contactusForm
 from .models import Contactus, Gallery
@@ -69,10 +69,15 @@ def contacts(request):
     context = {'form':form}
     return render(request, template, context)
 
-def gallery(request):
+def gallery(request, gallery_slug=None):
     template='gallery.html'
+    thumbnail = None
     pictures = Gallery.objects.all()
-
-
-    return render(request, template)
+    if gallery_slug != None:
+        thumbnail = get_object_or_404(Gallery, slug=gallery_slug)
         
+    pictures = Gallery.objects.filter(slug=gallery_slug)
+    context = {'pictures':pictures, 'thumbnail':thumbnail}
+    return render(request, template, context)
+
+       

@@ -49,3 +49,21 @@
     </div>
   </div>
 </section>
+
+
+
+<!-- backup homepage -->
+<div class="single-hero-slide bg-img bg-overlay d-flex align-items-center justify-content-center"  style="background-image: url({% static 'img/bg-img/1.jpg' %});">
+  <!-- Post Content -->
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <div class="hero-slides-content">
+                  <h2 data-animation="fadeInUp" data-delay="100ms" class="welcome-header">Welcome To Holy Life Fellowship</h2>
+                  <p data-animation="fadeInUp" data-delay="300ms"></p>
+                  <a href="about.html" class="btn crose-btn" data-animation="fadeInUp" data-delay="500ms">About Us</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

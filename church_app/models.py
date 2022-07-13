@@ -19,5 +19,6 @@ class Contactus(models.Model):
 class Gallery(models.Model):
     caption = models.CharField(max_length=100)
     title = models.CharField(max_length=50)
+    slug = models.SlugField(max_length=50)
     thumbnail = models.ImageField(upload_to='gallery')
     created_date = models.DateTimeField(auto_now_add = True)

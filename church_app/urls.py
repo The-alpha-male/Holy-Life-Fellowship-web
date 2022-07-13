@@ -11,4 +11,5 @@ urlpatterns = [
     path('events', views.events, name='events'),
     path('gallery', views.gallery, name='gallery'),
     path('login_user', views.login_user, name='login'),
+    path('gallery/<slug:gallery_slug>', views.gallery, name='gallery_detail'),
 ]
