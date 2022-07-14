@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from . models import Contactus,Gallery
+from . models import Contactus,Gallery,Events
 
 # # Register your models here.
 class GalleryAdmin(admin.ModelAdmin):
@@ -14,4 +14,5 @@ class GalleryAdmin(admin.ModelAdmin):
         model = Gallery
 admin.site.register(Contactus)
 admin.site.register(Gallery,GalleryAdmin)
+admin.site.register(Events)
 

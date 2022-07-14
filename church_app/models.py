@@ -22,3 +22,10 @@ class Gallery(models.Model):
     slug = models.SlugField(max_length=50)
     thumbnail = models.ImageField(upload_to='gallery')
     created_date = models.DateTimeField(auto_now_add = True)
+    
+class Events(models.Model):
+    title = models.CharField(max_length=50)
+    date = models.DateField()
+    time = models.TimeField()
+    location = models.CharField(max_length=50)
+    description = models.TextField(max_length=100)

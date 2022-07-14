@@ -80,4 +80,4 @@ def gallery(request, gallery_slug=None):
     context = {'pictures':pictures, 'thumbnail':thumbnail}
     return render(request, template, context)
 
-       
+   

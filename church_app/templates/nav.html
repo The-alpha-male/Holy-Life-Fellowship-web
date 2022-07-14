@@ -21,23 +21,22 @@
                                 <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
                             </div>
 
-                            <!-- Nav Start -->
+                            <!-- Nav Start -->                       
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="{% url 'church_app:home' %}">Home</a></li>
                                     <li><a href="{% url 'church_app:about' %}">About Us</a></li>
                                     <li><a href="{% url 'church_app:events' %}">Events</a></li>
                                     <li><a href="{% url 'church_app:gallery' %}">Gallery</a></li>
                                     <li><a href="{% url 'church_app:contacts' %}">Contact Us</a></li>
-                                    <li><a href="{% url 'church_app:login' %}">Log In</a></li>
+                                    <li><a href="{% url 'church_app:login' %}">Logout</a></li>
 
                                 </ul>
 
-                                <!-- Search Button -->
+                                {% comment %} <!-- Search Button -->
                                 <div id="header-search"><i class="fa fa-search" aria-hidden="true"></i></div>
 
                                 <!-- Donate Button -->
-                                <a href="#" class="btn crose-btn header-btn">Ministry Support</a>
+                                <a href="#" class="btn crose-btn header-btn">Ministry Support</a> {% endcomment %}
 
                             </div>
                             <!-- Nav End -->
