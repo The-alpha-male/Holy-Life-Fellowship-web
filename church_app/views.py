@@ -3,39 +3,49 @@ from re import template
 from django.shortcuts import get_object_or_404, render,redirect
 from django.http import HttpResponse
 from . forms import contactusForm
-from .models import Contactus, Gallery
-from django. contrib.auth.forms import UserCreationForm
-from django.contrib.auth import authenticate,login,logout
-from django.contrib import messages
+from .models import Gallery
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
+from .forms import UserRegisterForm, loginForm
+from django.contrib import messages,auth
+from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+
+
 def register(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+    if request.method == "POST":
+        form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('login')
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Hi {username}, your account was created successfully')
+            return redirect('church_app:login')
     else:
-        form = UserCreationForm()
-    return render(request, 'register.html', {'form': form})
+        form = UserRegisterForm()
+
+    return render(request, 'authentication/register.html', {'form': form})
 
 
-def login_user(request):
-    if request.method == 'POST': 
-         username = request.POST['username']
-         password = request.POST['password']
-         user = authenticate(request, username=username, password=password)
-         if user is not None:
-            login(request, user)
-            return redirect('home')
-            
-         else:
-            messages. success(request,("There was an Error in Logging in, Try Again... "))
-            return redirect('login')
-   
-    else:    
-        return render(request, 'authenticate/login.html',{} )
+def login(request):
+    if request.method == "POST":
+        form = loginForm(request.POST)
+        
+        if form.is_valid():
+            user = auth.authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])    
+            return redirect('church_app:home')
+        else:
+            messages.error(request, 'Invalid username or password')
+            return redirect('church_app:login')
+    else:
+        form = loginForm()
+    context = {'form': form}
+      
+    return render(request, 'authentication/login.html', context)
 
+
+@login_required()
+def profile(request):
+    return render(request, 'profile.html')
 
 
 def home(request):
@@ -46,9 +56,7 @@ def about(request):
     template='about.html'
     return render(request, template)
 
-def teaching(request):
-    template='teaching.html'
-    return render(request, template)
+
 
 def events(request):
     template='events.html'

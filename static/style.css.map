@@ -1,0 +1,7 @@
+{
+"version": 3,
+
+"sources": ["scss/style.scss","scss/_fonts.scss","scss/_theme_color.scss","scss/_mixin.scss"],
+"names": [],
+"file": "style.css"
+}
