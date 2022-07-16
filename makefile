@@ -14,7 +14,7 @@ dbUpdate:
 	python3 manage.py migrate
 
 run:
-	python3 manage.py runserver 
+	python3 manage.py runserver 0.0.0.0:9062
 
 pull:
 	@echo "You should have your Github Personal Token"
