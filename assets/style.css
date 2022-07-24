@@ -2102,5 +2102,75 @@ label {
     border-radius: 9px;
 }
 
+.map-area {
+    position: relative;
+    z-index: 2;
+    iframe {
+        width: 100%;
+        height: 530px;
+        border: none;
+        margin-bottom: 0;
+        @media #{$breakpoint-xs} {
+            height: 300px;
+        }
+    }
+}
+
+.gallery-area {
+    position: relative;
+    z-index: 1;
+}
+
+.single-gallery-area {
+    flex: (0 0 20%);
+    max-width: 20%;
+    width: 20%;
+    @media #{$breakpoint-md} {
+        @include flex(0 0 50%);
+        max-width: 50%;
+        width: 50%;
+    }
+    @media #{$breakpoint-xs} {
+        flex: (0 0 100%);
+        max-width: 100%;
+        width: 100%;
+    }
+    @media #{$breakpoint-sm} {
+        flex: (0 0 50%);
+        max-width: 50%;
+        width: 50%;
+    }
+    a {
+        display: block;
+        overflow: hidden;
+        cursor: url(img/core-img/zoom.png), auto;
+        img {
+            @include trans-duration(800ms);
+        }
+    }
+    &:hover a img {
+        @include transform(scale(1.2));
+        -webkit-filter: blur(5px);
+        filter: blur(5px);
+    }
+}
+
+
+/* map */
+
+map-area {
+    position: relative;
+    z-index: 2;
+    iframe {
+        width: 100%;
+        height: 530px;
+        border: none;
+        margin-bottom: 0;
+        @media #{$breakpoint-xs} {
+            height: 300px;
+        }
+    }
+}
+
 
 /* ======= The End ======/

@@ -48,22 +48,25 @@ def profile(request):
     return render(request, 'profile.html')
 
 
+# @login_required('church_app:login')
 def home(request):
     template = 'index.html'
     return render(request, template) 
 
+
+@login_required()
 def about(request):
     template='about.html'
     return render(request, template)
 
 
-
+@login_required()
 def events(request):
     template='events.html'
     return render(request, template)
 
 
-
+@login_required()
 def contacts(request):
     if request.method == 'POST':
         form = contactusForm(request.POST)
@@ -77,15 +80,16 @@ def contacts(request):
     context = {'form':form}
     return render(request, template, context)
 
-def gallery(request, gallery_slug=None):
+@login_required()
+def gallery(request):
     template='gallery.html'
-    thumbnail = None
+    # thumbnail = None
     pictures = Gallery.objects.all()
-    if gallery_slug != None:
-        thumbnail = get_object_or_404(Gallery, slug=gallery_slug)
+    # if gallery_slug != None:
+    #     thumbnail = get_object_or_404(Gallery, slug=gallery_slug)
         
-    pictures = Gallery.objects.filter(slug=gallery_slug)
-    context = {'pictures':pictures, 'thumbnail':thumbnail}
+    # pictures = Gallery.objects.filter(slug=gallery_slug)
+    context = {'pictures':pictures,}
     return render(request, template, context)
 
    

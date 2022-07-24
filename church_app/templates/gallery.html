@@ -5,7 +5,10 @@
     
         
     <!-- ##### Gallery Area Start ##### -->
-    <div class="gallery-area d-flex flex-wrap">
+
+
+
+   <div class="gallery-area d-flex flex-wrap">
         <!-- Single Gallery Area -->
         {% for picture in pictures %}
         <div class="single-gallery-area">
@@ -14,14 +17,9 @@
                 <img src="{{picture.thumbnail.url}}" alt="{{picture.title}}">
             </a>
         </div>
+        
         {% endfor %}
-
-        <!-- Single Gallery Area -->
-        <div class="single-gallery-area">
-            <a href="img/bg-img/14.jpg' %}" class="gallery-img" title="Gallery Image 2">
-                <img src="{% static 'img/bg-img/14.jpg' %}" alt="">
-            </a>
-        </div>
-
+        
+    </div>
 
 {% endblock %}    
